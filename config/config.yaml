@@ -1,0 +1,32 @@
+data:
+  historical:
+    start_date: "2024-01-01T00:00:00"
+    end_date: "2024-12-31T23:59:59"
+    description: "Historical data - auto-discovered from output/*.csv"
+    # source_files now auto-discovered from output/ directory
+  
+  forecast:
+    start_date: "2025-01-01T00:00:00"
+    end_date: "2025-12-31T23:59:59"
+    description: "Forecasted data - auto-discovered from output/*.csv"
+    # source_files now auto-discovered from output/ directory
+training:
+  min_train_weeks: 26  # Minimum 6 months in weeks
+  eval_period_weeks: 6  # 6 weeks evaluation period
+  cv_folds: 5  # Number of cross-validation folds
+  test_month_exclude: true  # Whether to exclude last month for testing
+  baseline_lookback_weeks: 5  # Number of weeks to look back for baseline model
+  
+# InfluxDB configuration now loaded from environment variables
+influxdb:
+  # These are now loaded from environment variables:
+  # INFLUXDB_URL, INFLUXDB_TOKEN, INFLUXDB_ORG, INFLUXDB_BUCKET
+  url: "${INFLUXDB_URL}"
+  token: "${INFLUXDB_TOKEN}"
+  org: "${INFLUXDB_ORG}"
+  bucket: "${INFLUXDB_BUCKET}"
+
+api:
+  title: "Forecasting API"
+  description: "API for retrieving forecasts and historical data"
+  version: "1.0.0"
