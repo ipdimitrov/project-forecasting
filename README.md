@@ -62,7 +62,7 @@ docker run -d \
   -e DOCKER_INFLUXDB_INIT_ORG=org \
   -e DOCKER_INFLUXDB_INIT_BUCKET=forecasts \
   -e DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=admin-token \
-  influxdb:2.0
+  influxdb:2.7
 ```
 
 #### Configure Environment
